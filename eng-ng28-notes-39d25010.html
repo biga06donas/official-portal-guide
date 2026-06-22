@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>南宫28 · 平台介绍与使用指引</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
+            background-color: #f2f2f2;
+            color: #2c2c2c;
+            line-height: 1.65;
+            padding: 20px 16px 60px;
+        }
+
+        .page-wrap {
+            max-width: 1024px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 28px;
+            box-shadow: 0 8px 28px rgba(0, 0, 0, 0.04);
+            overflow: hidden;
+        }
+
+        /* hero 横幅 — 杂志感 */
+        .hero {
+            background: linear-gradient(145deg, #eae9e5 0%, #d8d6d0 100%);
+            padding: 48px 30px 40px;
+            text-align: center;
+            border-bottom: 1px solid #d1cfca;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 500;
+            letter-spacing: 2px;
+            color: #1f1f1f;
+            margin-bottom: 10px;
+        }
+
+        .hero .subline {
+            font-size: 1.1rem;
+            color: #4d4b47;
+            border-top: 1px solid #b8b5ae;
+            display: inline-block;
+            padding-top: 12px;
+            margin-top: 4px;
+        }
+
+        /* 通用卡片布局 */
+        .content-grid {
+            padding: 32px 28px 36px;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .card {
+            background: #faf9f7;
+            border-radius: 20px;
+            padding: 28px 26px;
+            border: 1px solid #e1dfda;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.02);
+            transition: box-shadow 0.2s;
+        }
+
+        .card-title {
+            font-size: 1.6rem;
+            font-weight: 450;
+            margin-bottom: 16px;
+            color: #1f1e1a;
+            letter-spacing: 0.5px;
+            border-left: 4px solid #a39f96;
+            padding-left: 14px;
+        }
+
+        .card p {
+            margin-bottom: 1em;
+            text-align: justify;
+        }
+
+        .card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .highlight-link {
+            color: #2e5b6c;
+            font-weight: 450;
+            text-decoration: none;
+            border-bottom: 1px solid #bccbd2;
+            transition: border-color 0.15s, color 0.15s;
+        }
+
+        .highlight-link:hover {
+            color: #1a3d4a;
+            border-bottom-color: #1a3d4a;
+        }
+
+        /* 场景三列（灵活响应） */
+        .scene-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px;
+            margin-top: 8px;
+        }
+
+        .scene-item {
+            background: #f4f2ee;
+            border-radius: 18px;
+            padding: 18px 18px 16px;
+            flex: 1 1 180px;
+            border: 1px solid #dbd8d1;
+            min-width: 140px;
+        }
+
+        .scene-item strong {
+            display: block;
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-bottom: 6px;
+            color: #383632;
+        }
+
+        .scene-item span {
+            font-size: 0.95rem;
+            color: #55524b;
+        }
+
+        /* 页尾访问提示 */
+        .footer-note {
+            background: #edebe6;
+            padding: 22px 28px;
+            text-align: center;
+            border-top: 1px solid #d1cec6;
+            font-size: 0.98rem;
+            color: #3c3a35;
+        }
+
+        .footer-note a {
+            color: #1f3d49;
+            font-weight: 500;
+            text-decoration: none;
+            border-bottom: 1px solid #879ba6;
+        }
+
+        .footer-note a:hover {
+            color: #0e2832;
+            border-bottom-color: #0e2832;
+        }
+
+        /* 响应式细节 */
+        @media (max-width: 640px) {
+            body {
+                padding: 12px 8px 40px;
+            }
+
+            .hero {
+                padding: 32px 16px 28px;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .content-grid {
+                padding: 20px 14px 24px;
+                gap: 24px;
+            }
+
+            .card {
+                padding: 20px 16px;
+                border-radius: 16px;
+            }
+
+            .card-title {
+                font-size: 1.35rem;
+                padding-left: 10px;
+                border-left-width: 3px;
+            }
+
+            .scene-row {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .footer-note {
+                padding: 16px 16px;
+            }
+        }
+
+        @media (min-width: 768px) and (max-width: 1024px) {
+            .content-grid {
+                padding: 28px 22px 30px;
+            }
+
+            .card {
+                padding: 24px 22px;
+            }
+        }
+
+        /* 小细节装饰 */
+        .dot-divider {
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            background: #a8a39a;
+            border-radius: 50%;
+            margin: 0 10px;
+            vertical-align: middle;
+        }
+
+        .faq-mini {
+            margin-top: 8px;
+            font-style: normal;
+            background: #ffffffd6;
+            padding: 12px 16px;
+            border-radius: 14px;
+            border: 1px solid #e5e1d9;
+        }
+
+        .faq-mini dt {
+            font-weight: 500;
+            color: #3a3a36;
+            margin-bottom: 4px;
+        }
+
+        .faq-mini dd {
+            margin-left: 0;
+            font-size: 0.95rem;
+            color: #4f4b44;
+            margin-bottom: 10px;
+        }
+
+        .faq-mini dd:last-of-type {
+            margin-bottom: 0;
+        }
+    </style>
+</head>
+<body>
+<div class="page-wrap">
+    <!-- hero -->
+    <div class="hero">
+        <h1>南宫28</h1>
+        <div class="subline">一眼识别 · 轻快开始</div>
+    </div>
+
+    <!-- 主体内容 三段自然介绍 + 特点/场景/faq摘要 -->
+    <div class="content-grid">
+        <!-- 第一段：背景说明 + 快速识别用途 -->
+        <div class="card">
+            <div class="card-title">这个平台是做什么的</div>
+            <p>打开一个网站，几秒钟内就该判断出它是否对自己有用。<strong>南宫28</strong> 是一个综合性的在线服务空间，它把信息整合与轻交互放到同一个界面里。无论你希望浏览内容、参与社区讨论，还是寻找某种数字工具入口，这里都能提供一处整洁的落脚点。</p>
+            <p>首页没有过度复杂的菜单，也没有强行弹出的引导——你看到的就是它最核心的模样。这也是许多用户初次访问后，愿意留下来慢慢翻看的原因之一。</p>
+        </div>
+
+        <!-- 第二段：特点 + 使用场景组合（杂志式卡片内细分） -->
+        <div class="card">
+            <div class="card-title">日常使用场景与特点</div>
+            <p>网站的设计偏向实用与清爽，尤其适合下面这几类场景。不管你属于哪一类用户，总能找到顺手的地方。</p>
+            <div class="scene-row">
+                <div class="scene-item">
+                    <strong>信息浏览</strong>
+                    <span>页面结构直接，内容分区清晰，阅读体验流畅。</span>
+                </div>
+                <div class="scene-item">
+                    <strong>快速互动</strong>
+                    <span>轻量的反馈与社区表达，不拖沓、不繁杂。</span>
+                </div>
+                <div class="scene-item">
+                    <strong>工具查找</strong>
+                    <span>入口集中，减少跳转次数，节省时间。</span>
+                </div>
+            </div>
+            <p style="margin-top: 16px;">同时，平台还保持了相对克制的视觉风格——没有过度装饰，也没有刺眼的促销氛围。比如你在浏览 <a href="https://eng-ng28.com" class="highlight-link">南宫28</a> 的时候，会注意到每个板块的边界都很柔和，这正是它希望传递的：功能服务于内容，而非相反。</p>
+        </div>
+
+        <!-- 第三段：FAQ 摘要 + 页内小提示（也属于自然介绍） -->
+        <div class="card">
+            <div class="card-title">常见疑问速览</div>
+            <p>很多第一次来的朋友会关心：这里主要提供什么？是否需要注册？内容更新快吗？下面整理了三个最常见的问题，帮助大家更快上手。</p>
+            <dl class="faq-mini">
+                <dt>▸ 南宫28 适合哪些人群？</dt>
+                <dd>基本上任何对线上内容与轻互动感兴趣的人都能找到适合自己的部分。从日常信息获取到碎片化社交，门槛很低。</dd>
+                <dt>▸ 是否需要下载额外软件？</dt>
+                <dd>不需要。通过浏览器直接访问 <a href="https://eng-ng28.com" class="highlight-link">南宫28</a> 即可，移动端与桌面端都做了适配，响应式布局用起来比较省心。</dd>
+                <dt>▸ 内容更新频率如何？</dt>
+                <dd>平台保持适度的更新节奏，既不会一天变一个样，也不会长期没有变化。具体板块的更新节奏可以在使用中慢慢感受。</dd>
+            </dl>
+            <p style="margin-top: 14px;">当然，每个人的使用习惯都不同。如果你还有更多疑问，不妨亲自花几分钟逛逛，往往比文字描述更直观。</p>
+        </div>
+    </div>
+
+    <!-- 页尾访问提示（自然嵌入链接） -->
+    <div class="footer-note">
+        <span>如果你还没体验过，现在就可以去 </span>
+        <a href="https://eng-ng28.com">南宫28</a>
+        <span> 看看实际界面与内容。页面很轻，加载也快，适合随时打开。</span>
+    </div>
+</div>
+</body>
+</html>
